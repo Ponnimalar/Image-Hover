@@ -1,0 +1,103 @@
+body {
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    flex-direction: row;
+    background-color: #4E2A4F; /* Dark background */
+    font-family: sans-serif;
+}
+
+.heading {
+    color: azure;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: x-large;
+    position: fixed;
+    top: 0%;
+    right: 80vh;
+    justify-content: center;
+    flex-direction: row;
+    text-shadow: 15px 10px 8px rgb(38, 37, 37);
+}
+
+.card-container {
+    display: flex;
+    margin: 60px ;
+    gap: 40px; /* Space between cards */
+    padding: 55px;
+}
+
+/* Card Styling */
+.card {
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden; 
+}
+
+.card figure {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    display:block; 
+    transition: transform 0.4s ease-out; /* Smooth image zoom */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 25, 25, 0.477); /* Dark overlay color */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out; 
+}
+
+.overlay h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+    transform: translateY(20px); 
+    transition: transform 0.4s ease-out;
+}
+
+.overlay p {
+    font-size: 0.9em;
+    margin: 0;
+    transform: translateY(20px); 
+    transition: transform 0.4s ease-out 0.1s; /* Slight delay for paragraph */
+}
+
+
+.card figure:hover img {
+    transform: scale(1.1); 
+}
+
+.card figure:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card figure:hover .overlay h2,
+.card figure:hover .overlay p {
+    transform: translateY(0);
+}
